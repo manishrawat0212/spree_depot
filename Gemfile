@@ -32,6 +32,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'daemons',                       '~> 1.2.3'
 
 group :assets do
   gem 'therubyracer',                '~> 0.12.1',                  platforms: :ruby
