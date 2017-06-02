@@ -18,3 +18,20 @@ namespace :deploy do
     invoke :'delayed_job:restart'
   end
 end
+
+task_states = %w[start stop restart]
+
+namespace :delayed_job do
+  task_states.each do |command|
+    desc "#{ command } delayed job"
+    task command do
+      on roles(:delayed_job), in: :parallel do
+        within current_path do
+          with rails_env: fetch(:rails_env) do
+            execute :bundle, :exec, :ruby, "bin/delayed_job #{ command }"
+          end
+        end
+      end
+    end
+  end
+end
