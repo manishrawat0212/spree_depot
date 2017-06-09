@@ -28,7 +28,7 @@ namespace :delayed_job do
       on roles(:delayed_job), in: :parallel do
         within current_path do
           with rails_env: fetch(:rails_env) do
-            execute :bundle, :exec, :ruby, "bin/delayed_job #{ command }"
+            execute :bundle, :exec, :ruby, "bin/delayed_job --queues='default,mailers' #{ command }"
           end
         end
       end
