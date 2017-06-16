@@ -44,11 +44,10 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name: Rails.application.secrets.mail['user_name'],
     password: Rails.application.secrets.mail['password'],
-    domain: 'gmail.com',
-    address: "smtp.gmail.com",
-    port: 587,
-    authentication: :plain,
-    enable_starttls_auto: true
+    address: 'smtp.mailtrap.io',
+    domain: 'smtp.mailtrap.io',
+    port: '2525',
+    authentication: :cram_md5
   }
 
   Spree::Core::Engine.routes.default_url_options[:host] = '34.211.92.176'
