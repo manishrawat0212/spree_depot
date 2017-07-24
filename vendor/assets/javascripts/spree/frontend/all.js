@@ -10,3 +10,4 @@
 
 //= require_tree .
 //= require spree/frontend/spree_auth
+//= require spree/frontend/spree_datashift_prod_import
