@@ -34,6 +34,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'daemons',                       '~> 1.2.3'
 
+# Custom Rails form builder for Vue.js
+gem 'vue-rails-form-builder',        '~> 0.8.2'
+
 group :assets do
   gem 'therubyracer',                '~> 0.12.1',                  platforms: :ruby
 end
@@ -60,3 +63,4 @@ gem 'delayed_job_active_record',     '~> 4.1'
 gem 'spree', '~> 3.1.0'
 gem 'spree_auth_devise', '~> 3.1.0'
 gem 'spree_gateway', '~> 3.1.0'
+gem 'spree_ams', path: '/Users/vinsol/vinsol/projects/extensions/spree_ams'

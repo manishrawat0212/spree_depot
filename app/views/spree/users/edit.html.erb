@@ -1,0 +1,29 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= Spree.t(:editing_user) %></h3>
+    </div>
+    <div class="panel-body">
+      <%= render partial: 'spree/shared/error_messages', locals: { target: @user } %>
+
+      <%= vue_form_for Spree::User.new, as: @user, url: spree.user_path(@user), method: :put, html: { id: 'user-edit-form' } do |f| %>
+        <%= render partial: 'spree/shared/user_form', locals: { f: f } %>
+
+        <p><%= f.submit Spree.t(:update), class: 'btn btn-primary', 'v-on:click.prevent': 'onSubmit' %></p>
+
+        <script>
+          window.USER_FORM_DATA = {
+            user: {
+              email: "<%= f.object.email %>",
+              password: "<%= f.object.password %>",
+              password_confirmation: "<%= f.object.password_confirmation %>"
+            },
+            form_url: "<%= spree.user_path(@user) %>"
+          }
+        </script>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag 'vue/user_form' %>
